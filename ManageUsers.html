@@ -5,40 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://shawnclake.ca/libs/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./styles/dashboard.css">
+	<link rel="stylesheet" href="http://144.217.7.184/libs/font-awesome-4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
 <body>
 
-   <div class="side-nav">
-        <ul class="side-nav__links">
-            <li>Dashboard</li>
-            <li>Manage Services</li>
-            <li>Manage Users</li>
-        </ul>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="Dashboard.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ManageUsers.html">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+	
+	    <div style="margin-top:25px;
+" class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Busy</th>
+					<th></th>
+                </tr>
+                </thead>
+                <tbody id="userData">
+
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <div class="page">
-		<table>
-			<thead>
-			<tr>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Username</th>
-				<th>Busy</th>
-			</tr>
-			</thead>
-			<tbody id="userData">
-			</tbody>
-		</table>
-	</div>
+	  
 	<form>
-		<input class="button-success" type="submit" value="Add"></input>
+		<button type="button" class="btn btn-success" onclick="Add()"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
 	</form>
+	</div>
 </body>
 
 <script>
 
+function Add(){
+	window.location = "http://144.217.7.184/AddUser.html";
+}
 
  var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -48,11 +73,13 @@
 	for( var i = 0; i<object.length; i++){
 	
 		var tr = document.createElement("tr");
+		var Delete = document.createElement("td");
 		var FirstName = document.createElement("td");
 		var LastName = document.createElement("td");
 		var Username = document.createElement("td");
 		var Busy = document.createElement("td");
 		
+		Delete.innerHTML = '<button type="button" class="btn btn-danger" onclick="Add()"><i class="fa fa-minus" aria-hidden="true"></i> Remove</button>'
 		FirstName.innerHTML = object[i][1];
 		LastName.innerHTML = object[i][2];
 		Username.innerHTML = object[i][3];
@@ -62,6 +89,7 @@
 		tr.appendChild(LastName);
 		tr.appendChild(Username);
 		tr.appendChild(Busy);
+		tr.appendChild(Delete);
 		
 		document.getElementById("userData").appendChild(tr);
 	}

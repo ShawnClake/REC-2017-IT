@@ -4,11 +4,10 @@ $username = "root";
 $password = "zdmKdsXE3mvMcNJtrh93bjjtBtNQ8sYep76spKf2XYHQNSK7rWAWpTeYGzYjywHS";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$DB = new mysqli($servername, $username, $password);
 
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($DB->connect_error) {
+    die("Connection failed: " . $DB->connect_error);
 } 
 echo "Connected successfully";
-?>

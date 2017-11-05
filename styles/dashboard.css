@@ -1,6 +1,7 @@
 body {
     width: 100vw;
     height: 100vh;
+    background: #333333;
 
     display: grid;
     grid-template: 1fr / 220px 1fr;
@@ -8,9 +9,23 @@ body {
 
 .side-nav {
     grid-area: 1 / 1 / 2 / 2;
+    padding: 0;
+    margin: 0;
     background: #292929;
     /* box-shadow: 2px 0 8px 0 rgba(0, 0, 0, 0.05), 2px 0 4px 0 rgba(0, 0, 0, 0.15); */
     z-index: 100;
+}
+
+.side-nav__links {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    background: #999999;
+    list-style: none;
+    color: #484848;
 }
 
 .container {

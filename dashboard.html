@@ -42,6 +42,7 @@
                     <th scope="col">IP</th>
                     <th scope="col">Description</th>
                     <th scope="col">Status</th>
+					<th scope="col">Details</th>
                 </tr>
                 </thead>
                 <tbody id="healthData">
@@ -76,6 +77,10 @@
 <script src="https://shawnclake.ca/libs/js/bootstrap.min.js"></script>
 <script>
 
+function Go(){
+	window.location = "https://shawnclake.ca/detail.html"
+}
+
  var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -84,6 +89,7 @@
 	for( var i = 0; i<object.length; i++){
 		
 		var tr = document.createElement("tr");
+		var details = document.createElement("td");
 		var iptr = document.createElement("td");
 		var Nametr = document.createElement("td");
 		var Descriptr = document.createElement("td");
@@ -98,11 +104,13 @@
 			} else {
 			Statustr.innerHTML = "Running"
 			}
-		
+			
+		details.innerHTML = '<button class="btn btn-success" onClick="Go()">Details</button>';
 		tr.appendChild(iptr);
 		tr.appendChild(Nametr);
 		tr.appendChild(Descriptr);
 		tr.appendChild(Statustr);
+		tr.appendChild(details);
 		
 		document.getElementById("healthData").appendChild(tr);
 	}

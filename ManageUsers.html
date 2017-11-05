@@ -42,7 +42,6 @@
                     <th scope="col">Last Name</th>
                     <th scope="col">Username</th>
                     <th scope="col">Busy</th>
-					<th></th>
                 </tr>
                 </thead>
                 <tbody id="userData">
@@ -51,24 +50,10 @@
             </table>
         </div>
     </div>
-
-	  
-	<form>
-		<button type="button" class="btn btn-success" onclick="Add()"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
-	</form>
 	</div>
 </body>
 
 <script>
-
-function Add(){
-	window.location = "http://shawnclake.ca/AddUser.html";
-}
-
-function Remove(){
-window.location = "http://shawnclake.ca/DeleteUser.php?";
-}
-
  var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -77,13 +62,11 @@ window.location = "http://shawnclake.ca/DeleteUser.php?";
 	for( var i = 0; i<object.length; i++){
 	
 		var tr = document.createElement("tr");
-		var Delete = document.createElement("td");
 		var FirstName = document.createElement("td");
 		var LastName = document.createElement("td");
 		var Username = document.createElement("td");
 		var Busy = document.createElement("td");
 		
-		Delete.innerHTML = '<button type="button" class="btn btn-danger" onclick="Remove()"><i class="fa fa-minus" aria-hidden="true"></i> Remove</button>'
 		FirstName.innerHTML = object[i][1];
 		LastName.innerHTML = object[i][2];
 		Username.innerHTML = object[i][3];
@@ -93,7 +76,6 @@ window.location = "http://shawnclake.ca/DeleteUser.php?";
 		tr.appendChild(LastName);
 		tr.appendChild(Username);
 		tr.appendChild(Busy);
-		tr.appendChild(Delete);
 		
 		document.getElementById("userData").appendChild(tr);
 	}

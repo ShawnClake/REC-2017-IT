@@ -1,11 +1,17 @@
-<?
-include 'serverConn.php'
+<?php
+include 'serverConn.php';
 
-$usr = $_POST('Username')
-$pass = $_POST('Password')
+$usr = $_POST["username"];
+$pass = $_POST["password"];
 
-$sql = "SELECT * FROM ITStaff WHERE Username = $usr and Password = $pass"
-if($DB->query($sql) === TRUE)
+$sql = "SELECT * FROM `ITStaff` WHERE `Username`=\"" . $usr . "\" and `Password`=\"" . $pass ."\"";
+echo $sql;
+echo "doing query";
+$result = $DB->query($sql);
+echo "queried";
+echo "queried";
+echo $result;
+if($result->num_rows > 0)
 {
 	echo "User found";
 } else {

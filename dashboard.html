@@ -40,8 +40,8 @@
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">IP</th>
-                    <th scope="col">Status</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Status</th>
                 </tr>
                 </thead>
                 <tbody id="healthData">
@@ -93,11 +93,11 @@
 		Nametr.innerHTML = object[i][1];
 		Descriptr.innerHTML = object[i][2];
 			if(object[i][3] == "0" || object[i][3] == 0){
-			Statustr.innerHTML = "Down"
+			Statustr.innerHTML = "Down";
+			tr.class = "list-group-item-danger";
 			} else {
 			Statustr.innerHTML = "Running"
 			}
-		
 		
 		tr.appendChild(iptr);
 		tr.appendChild(Nametr);

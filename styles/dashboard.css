@@ -1,0 +1,121 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background: #333333;
+
+    display: grid;
+    grid-template: 1fr / 220px 1fr;
+}
+
+.side-nav {
+    grid-area: 1 / 1 / 2 / 2;
+    padding: 0;
+    margin: 0;
+    background: #2B2B2B;
+    box-shadow: 2px 0 12px 0 rgba(0, 0, 0, 0.1), 2px 0 6px 0 rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.side-nav__links {
+    width: 100%;
+    padding: 0;
+    margin: 100px 0;
+    list-style: none;
+    color: #484848;
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.side-nav__links li {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.side-nav__links li:hover {
+    background: #505050;
+    color: #303030;
+    cursor: pointer;
+}
+
+.page {
+    grid-area: 1 / 2 / 2 / 3;
+    padding: 10px;
+    background: #333333;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.page__title {
+    font-size: 44px;
+    margin: 0 10px;
+    font-style: Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px #303030;
+    color: #484848;
+}
+
+.container {
+    width: 100%;
+    margin: 10px;
+    padding: 0;
+    background: #505050;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1), 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container__title {
+    background: #4B4B4B;
+    width: 100%;
+    padding: 4px 15px;
+    border-radius: 7px 7px 0 0;
+    font-size: 22px;
+    text-shadow: 1px 1px #404040;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.15);    
+}
+
+.overall-health {
+    height: 300px;
+}
+
+.services-health {
+    height: 300px;
+}
+
+.services-list {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.service {
+    width: 100%;
+    margin: 5px 0;
+    padding: 5px 10px;
+    border-radius: 7px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.2);    
+}
+
+.service:hover {
+    cursor: pointer;
+}
+
+.healthy:hover {
+    background: #3d772a;
+}
+
+.sick:hover {
+    background: #9b1717;
+}
+
+.healthy {
+    background: #2b571d;
+}
+
+.sick {
+    background: #6d0c0c;
+}

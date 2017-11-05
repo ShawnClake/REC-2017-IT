@@ -6,20 +6,28 @@
 <body>
 
 <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-3">Dependencies</h1>
-    <p class="lead">Open the source file to get easy access to dependencies.</p>
-  </div>
-  
-  <div class="container">
-  <form id="login" action="/php/login.php" method="post">
-	<input type="textbox" placeholder="Username" id="username" name="username"></input><br/>
-	<input type="textbox" placeholder="Password" id="password" name="password"></input><br/>
-	<input type="submit" value="Login"></input>
-  </form>
-  </div>
-	
+    <div class="container">
+
+        <div class = "row">
+            <div class="col-md-6 col-sm-12 offset-md-3">
+                <h1 class="display-3">Services Health </h1>
+                <p class="lead">IT Portal.</p>
+
+                <form id="login" action="/php/login.php" method="post">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="textbox" class="form-control" placeholder="Username" id="username" name="username"><br/>
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" placeholder="Password" id="password" name="password"><br/>
+                        <input type="submit" class="btn btn-primary" value="Login">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 <script src="https://shawnclake.ca/libs/js/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>

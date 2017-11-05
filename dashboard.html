@@ -5,56 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://shawnclake.ca/libs/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./styles/dashboard.css">
+    <!---<link rel="stylesheet" href="./styles/dashboard.css">-->
     <title>Document</title>
 </head>
 <body>
-    
-    <div class="side-nav">
-        <ul class="side-nav__links">
-            <li>Dashboard</li>
-            <li>Manage Services</li>
-            <li>Manage Users</li>
-        </ul>
-    </div>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="page">
-        <span class="page__title">Dashboard</span>
-        <div class="container overall-health">
-            <div class="container__title">
-                <span>Overview</span>
-				<table>
-				<tbody id="healthData">
-					<tr>
-						<th>IP</th>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Status</th>
-					</tr>
-				</tbody>
-			</table>
-            </div>
-        </div>
-        <div class="container services-health">
-            <div class="container__title">
-                <span>Services</span>
-            </div>
-            <ul class="services-list">
-                <li class="service healthy">
-                    <span class="service__name">Google</span>
-                    <span class="service__ip">172.16.2.254</span>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="service healthy">
-                    <span class="service__name">Google</span>
-                    <span class="service__ip">172.16.2.254</span>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Users</a>
                 </li>
-                <li class="service sick">
-                    <span class="service__name">Google</span>
-                    <span class="service__ip">172.16.2.254</span>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
             </ul>
         </div>
+    </nav>
+
+
+    <div style="margin-top:25px;
+" class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">IP</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody id="">
+
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="list-group">
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item list-group-item-primary">This is a primary list group item</li>
+                <li class="list-group-item list-group-item-secondary">This is a secondary list group item</li>
+                <li class="list-group-item list-group-item-success">This is a success list group item</li>
+                <li class="list-group-item list-group-item-danger">This is a danger list group item</li>
+                <li class="list-group-item list-group-item-warning">This is a warning list group item</li>
+                <li class="list-group-item list-group-item-info">This is a info list group item</li>
+                <li class="list-group-item list-group-item-light">This is a light list group item</li>
+                <li class="list-group-item list-group-item-dark">This is a dark list group item</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
 </body>
 
 <script src="https://shawnclake.ca/libs/js/jquery.min.js"></script>
@@ -68,8 +82,6 @@
 	//Update the DOM here
 	var object = JSON.parse(this.responseText);
 	for( var i = 0; i<object.length; i++){
-		var Descript = object[i][2];
-		var Status = object[i][3];
 		
 		var tr = document.createElement("tr");
 		var iptr = document.createElement("td");

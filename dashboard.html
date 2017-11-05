@@ -27,10 +27,25 @@
 
         </div>
     </div>
-
-    <script src="https://shawnclake.ca/libs/js/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://shawnclake.ca/libs/js/bootstrap.min.js"></script>
-
 </body>
+
+<script src="https://shawnclake.ca/libs/js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://shawnclake.ca/libs/js/bootstrap.min.js"></script>
+<script>
+
+ var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+	//Update the DOM here
+	var object = JSON.parse(this.responseText);
+	document.getElementById("health").innerHTML = this.responseText;
+	
+    }
+  };
+  xhttp.open("GET", "/php/loadDash.php", true);
+  xhttp.send();
+
+</script>
+
 </html>

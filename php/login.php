@@ -5,15 +5,12 @@ $usr = $_POST["username"];
 $pass = $_POST["password"];
 
 $sql = "SELECT * FROM `ITStaff` WHERE `Username`=\"" . $usr . "\" and `Password`=\"" . $pass ."\"";
-echo $sql;
-echo "doing query";
+
 $result = $DB->query($sql);
-echo "queried";
-echo "queried";
-echo $result;
+
 if($result->num_rows > 0)
 {
-	echo "User found";
+	header('Location: http://144.217.7.184/dashboard.html'.$newURL);
 } else {
-	echo "No User";
+	header('Location: http://144.217.7.184/index.html'.$newURL);
 }

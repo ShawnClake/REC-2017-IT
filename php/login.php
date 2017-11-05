@@ -10,7 +10,7 @@ $result = $DB->query($sql);
 
 if($result->num_rows > 0)
 {
-	header('Location: http://shawnclake.ca/dashboard.html'.$newURL);
+	header('Location: http://shawnclake.ca/dashboard.html');
 } else {
-	header('Location: http://shawnclake.ca/index.html'.$newURL);
+	header('Location: http://shawnclake.ca/index.html');
 }

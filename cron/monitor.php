@@ -19,7 +19,7 @@ if($returned)
     $issueResult = $DB->query($issue);
     if(isset($issueResult) && $issueResult->num_rows < 1)
     {
-        $createIssue = "INSERT INTO Issues (ServiceID, Resolved, AssignedStaffID) VALUES ($serviceID, 0, 1)";
+        $createIssue = "INSERT INTO Issues (ServiceID, IssueDescription, Resolved, AssignedStaffID) VALUES ($serviceID, \"Ping Failed\" 0, 1)";
         mysqli_query($DB, $createIssue);
     }
 

@@ -11,7 +11,7 @@
 <body>
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <img src="https://shawnclake.ca/service-monitor-logo.png" style="width: 30px; height: 30px;"></img>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -19,13 +19,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="https://shawnclake.ca/Dashboard.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Users</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                    <a class="nav-link" href="https://shawnclake.ca/ManageUsers.html">Users</a>
                 </li>
             </ul>
         </div>
@@ -51,23 +48,6 @@
             </table>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-sm-12">
-            <ul class="list-group">
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item list-group-item-primary">This is a primary list group item</li>
-                <li class="list-group-item list-group-item-secondary">This is a secondary list group item</li>
-                <li class="list-group-item list-group-item-success">This is a success list group item</li>
-                <li class="list-group-item list-group-item-danger">This is a danger list group item</li>
-                <li class="list-group-item list-group-item-warning">This is a warning list group item</li>
-                <li class="list-group-item list-group-item-info">This is a info list group item</li>
-                <li class="list-group-item list-group-item-light">This is a light list group item</li>
-                <li class="list-group-item list-group-item-dark">This is a dark list group item</li>
-            </ul>
-        </div>
-    </div>
-
 </div>
 
 </body>
@@ -77,8 +57,12 @@
 <script src="https://shawnclake.ca/libs/js/bootstrap.min.js"></script>
 <script>
 
-function Go(){
-	window.location = "https://shawnclake.ca/detail.html"
+function Go(param){
+	window.location = "https://shawnclake.ca/detail.php?id="+param;
+}
+
+function Resolve(param){
+	window.location = "https://shawnclake.ca/php/resolve.php?id="+param;
 }
 
  var xhttp = new XMLHttpRequest();
@@ -95,17 +79,20 @@ function Go(){
 		var Descriptr = document.createElement("td");
 		var Statustr = document.createElement("td");
 		
-		iptr.innerHTML = object[i][0];
-		Nametr.innerHTML = object[i][1];
+		details.innerHTML = '<button class="btn btn-success" onClick="Go('+ object[i][4] +')">Details</button>';
+		Nametr.innerHTML = object[i][0];
+		iptr.innerHTML = object[i][1];
 		Descriptr.innerHTML = object[i][2];
 			if(object[i][3] == "0" || object[i][3] == 0){
 			Statustr.innerHTML = "Down";
 			tr.className = "danger";
+			
+			details.innerHTML += '<button class="btn btn-success" onClick="Resolve('+ object[i][4] +')">Resolve Issue</button>';
+								
 			} else {
 			Statustr.innerHTML = "Running"
 			}
-			
-		details.innerHTML = '<button class="btn btn-success" onClick="Go()">Details</button>';
+		
 		tr.appendChild(iptr);
 		tr.appendChild(Nametr);
 		tr.appendChild(Descriptr);

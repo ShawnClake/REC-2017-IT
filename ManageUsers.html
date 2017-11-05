@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://shawnclake.ca/libs/css/bootstrap.min.css">
-	<link rel="stylesheet" href="http://144.217.7.184/libs/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://shawnclake.ca/libs/font-awesome-4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
 <body>
@@ -62,7 +62,11 @@
 <script>
 
 function Add(){
-	window.location = "http://144.217.7.184/AddUser.html";
+	window.location = "http://shawnclake.ca/AddUser.html";
+}
+
+function Remove(){
+window.location = "http://shawnclake.ca/DeleteUser.php?";
 }
 
  var xhttp = new XMLHttpRequest();
@@ -79,7 +83,7 @@ function Add(){
 		var Username = document.createElement("td");
 		var Busy = document.createElement("td");
 		
-		Delete.innerHTML = '<button type="button" class="btn btn-danger" onclick="Add()"><i class="fa fa-minus" aria-hidden="true"></i> Remove</button>'
+		Delete.innerHTML = '<button type="button" class="btn btn-danger" onclick="Remove()"><i class="fa fa-minus" aria-hidden="true"></i> Remove</button>'
 		FirstName.innerHTML = object[i][1];
 		LastName.innerHTML = object[i][2];
 		Username.innerHTML = object[i][3];

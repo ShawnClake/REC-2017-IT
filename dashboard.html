@@ -23,6 +23,16 @@
         <div class="container overall-health">
             <div class="container__title">
                 <span>Overview</span>
+				<table>
+				<tbody id="healthData">
+					<tr>
+						<th>IP</th>
+						<th>Name</th>
+						<th>Description</th>
+						<th>Status</th>
+					</tr>
+				</tbody>
+			</table>
             </div>
         </div>
         <div class="container services-health">
@@ -57,8 +67,34 @@
     if (this.readyState == 4 && this.status == 200) {
 	//Update the DOM here
 	var object = JSON.parse(this.responseText);
-	document.getElementById("health").innerHTML = this.responseText;
-	
+	for( var i = 0; i<object.length; i++){
+		var Descript = object[i][2];
+		var Status = object[i][3];
+		
+		var tr = document.createElement("tr");
+		var iptr = document.createElement("td");
+		var Nametr = document.createElement("td");
+		var Descriptr = document.createElement("td");
+		var Statustr = document.createElement("td");
+		
+		iptr.innerHTML = object[i][0];
+		Nametr.innerHTML = object[i][1];
+		Descriptr.innerHTML = object[i][2];
+			if(object[i][3] == "0" || object[i][3] == 0){
+			Statustr.innerHTML = "Down"
+			} else {
+			Statustr.innerHTML = "Running"
+			}
+		
+		
+		tr.appendChild(iptr);
+		tr.appendChild(Nametr);
+		tr.appendChild(Descriptr);
+		tr.appendChild(Statustr);
+		
+		document.getElementById("healthData").appendChild(tr);
+	}
+
     }
   };
   xhttp.open("GET", "/php/loadDash.php", true);

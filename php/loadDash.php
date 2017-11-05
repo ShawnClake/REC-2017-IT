@@ -2,20 +2,15 @@
 
 include 'serverConn.php';
 
-$sql = "SELECT * FROM `Services`";
+$sql = "SELECT * FROM `IP`";
 
 $result = $DB->query($sql);
 
 if($result->num_rows > 0)
 {
-	while($row = $result->fetch_assoc())
-	{
-		$obj->ServiceID = $row["ServiceID"];
-		$obj->IP = $row["IP"];
-		$obj->Name = $row["Name"];
-		$json = json_encode($obj);
-	}
-	echo $json;
+	$out = array();
+	$out = $result->fetch_all();
+	echo json_encode($out);
 } else {
 	return;
 }

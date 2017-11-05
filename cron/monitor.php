@@ -1,22 +1,34 @@
 <?php
 
-require_once('../php/serverConn.php');
+require_once('/var/www/html/php/serverConn.php');
 
-$ipQuery = "SELECT FROM IP";
+$ipQuery = "SELECT * FROM Services";
 
 $result = $DB->query($ipQuery);
 
-while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+while($row = $result->fetch_assoc())
 {
-var_dump($row);
+$command = "bash /var/www/html/cron/ping.sh " . $row["IP"];
+$returned = exec($command);
+
+$serviceID = $row['ServiceID'];
+
+if($returned)
+{
+    $issue = "SELECT * FROM Issues WHERE ServiceID=" . $serviceID . " AND Resolved=0";
+    $issueResult = $DB->query($issue);
+    if(isset($issueResult) && $issueResult->num_rows < 1)
+    {
+        $createIssue = "INSERT INTO Issues (ServiceID, Resolved, AssignedStaffID) VALUES ($serviceID, 0, 1)";
+        mysqli_query($DB, $createIssue);
+    }
+
+    $createHistory = "INSERT INTO ServiceHistory (ServiceID, State) VALUES ($serviceID, 0)";
+    mysqli_query($DB, $createHistory);
 }
-
-$ips = ['8.8.4.4', '8.8.4.5'];
-
-foreach($ips as $ip)
+else
 {
-    $command = "bash ping.sh " . $ip;
-    //echo $command;
-    $returned = exec($command);
-    //echo $returned;
+    $createHistory = "INSERT INTO ServiceHistory (ServiceID, State) VALUES ($serviceID, 1)";
+    mysqli_query($DB, $createHistory);
+}
 }

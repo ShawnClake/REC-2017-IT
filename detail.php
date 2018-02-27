@@ -37,6 +37,25 @@ require_once('/var/www/html/php/serverConn.php');
             <h1>Service</h1>
             <?php
             $serviceId = $_GET["id"];
+
+            $q4 = "SELECT * FROM Services WHERE ServiceID=$serviceId";
+
+            $r4 = $DB->query($q4);
+
+            $stuff4 = $r4->fetch_assoc();
+
+
+            $cid = $stuff4['CustomerID'];
+            $q3 = "SELECT * FROM Customer WHERE CustomerID=$cid";
+
+            $r3 = $DB->query($q3);
+
+            $stuff3 = $r3->fetch_assoc();
+
+            echo "Customer: " . $stuff3['FirstName'] . " " . $stuff3["LastName"];
+
+            echo "<br><br>";
+
             echo "<a href='https://shawnclake.ca/server-history.php?id=$serviceId'>Polling History</a>";
             ?>
             <br>
@@ -52,7 +71,7 @@ require_once('/var/www/html/php/serverConn.php');
                 </thead>
                 <tbody>
                 <?php
-                $ipQuery = "SELECT * FROM Issues WHERE ServiceID=$serviceId";
+                $ipQuery = "SELECT * FROM Issues WHERE ServiceID=$serviceId ORDER BY Time DESC";
 
                 $result = $DB->query($ipQuery);
 

@@ -16,7 +16,7 @@ require_once('/var/www/html/php/serverConn.php');
 <body>
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <img src="https://shawnclake.ca/service-monitor-logo.png" style="width: 30px; height: 30px;"></img>
+        <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,7 +24,7 @@ require_once('/var/www/html/php/serverConn.php');
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="https://shawnclake.ca/dashboard">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="https://shawnclake.ca">Home <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
@@ -64,6 +64,7 @@ require_once('/var/www/html/php/serverConn.php');
                             echo "<td>" . $state . "</td>";
                             echo "<td>" . $time . "</td>";
                         }
+
                     ?>
                 </tbody>
             </table>
